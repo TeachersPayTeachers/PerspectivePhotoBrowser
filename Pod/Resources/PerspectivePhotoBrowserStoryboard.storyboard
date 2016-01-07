@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CsO-A4-b6O">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Perspective Navigation Controller-->
+        <scene sceneID="hpQ-gj-BSr">
+            <objects>
+                <navigationController id="CsO-A4-b6O" customClass="PerspectiveNavigationController" customModule="PerspectivePhotoBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jb5-47-2fK">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="d0d-q7-R4t" kind="relationship" relationship="rootViewController" id="A8U-7Y-F2k"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vM4-Ux-PxD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-171" y="399"/>
+        </scene>
+        <!--Perspective Photo Browser View Controller-->
+        <scene sceneID="e8T-1C-hKG">
+            <objects>
+                <viewController id="d0d-q7-R4t" customClass="PerspectivePhotoBrowserViewController" customModule="PerspectivePhotoBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CuQ-lZ-cLR"/>
+                        <viewControllerLayoutGuide type="bottom" id="byk-5d-vP6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="egg-1x-UXf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5e0-aN-zEc">
+                                <rect key="frame" x="0.0" y="64" width="600" height="402"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="600"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="rfV-fI-xpM" kind="embed" identifier="PerspectivePhotoHolderViewController" id="1PH-Wm-FjS"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jN6-v6-nL3">
+                                <rect key="frame" x="0.0" y="500" width="600" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="87" id="dcB-yF-1oN"/>
+                                </constraints>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="692" width="400" height="88"/>
+                                </variation>
+                                <connections>
+                                    <segue destination="ONx-Zl-C7l" kind="embed" identifier="PerspectiveThumbnailViewController" id="IRQ-CX-DQI"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jN6-v6-nL3" firstAttribute="top" secondItem="5e0-aN-zEc" secondAttribute="bottom" constant="34" id="3gx-JF-aca"/>
+                            <constraint firstItem="5e0-aN-zEc" firstAttribute="leading" secondItem="egg-1x-UXf" secondAttribute="leadingMargin" constant="-20" id="Gxz-jw-nH3"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jN6-v6-nL3" secondAttribute="trailing" constant="-20" id="MGy-Tc-4Pd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5e0-aN-zEc" secondAttribute="trailing" constant="-20" id="NDY-DD-ofT"/>
+                            <constraint firstItem="5e0-aN-zEc" firstAttribute="top" secondItem="CuQ-lZ-cLR" secondAttribute="bottom" id="iPX-sO-H8v"/>
+                            <constraint firstItem="byk-5d-vP6" firstAttribute="top" secondItem="jN6-v6-nL3" secondAttribute="bottom" constant="13" id="w17-k7-EuT"/>
+                            <constraint firstItem="jN6-v6-nL3" firstAttribute="leading" secondItem="egg-1x-UXf" secondAttribute="leadingMargin" constant="-20" id="x5n-uz-pW8"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="wLW-4A-2HO">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="1na-Lb-Xi7">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jht-pX-f3d">
+                                <rect key="frame" x="534" y="7" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="userDidPressWithDoneButton:" destination="d0d-q7-R4t" eventType="touchUpInside" id="WA6-Hz-dLD"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WmY-hT-VDF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="592" y="399"/>
+        </scene>
+        <!--Perspective Photo Holder View Controller-->
+        <scene sceneID="HAC-zX-eHV">
+            <objects>
+                <viewController storyboardIdentifier="PerspectivePhotoHolderViewController" id="rfV-fI-xpM" customClass="PerspectivePhotoHolderViewController" customModule="PerspectivePhotoBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RTj-fR-oCm"/>
+                        <viewControllerLayoutGuide type="bottom" id="u5N-Bw-zzb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="voV-Jc-3zW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="402"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-cL-gh4">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="402"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Ksy-MX-cCE">
+                                    <size key="itemSize" width="556" height="404"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PerspectivePhotoHolderCell" id="6sD-Tz-mar" customClass="PerspectivePhotoHolderCell" customModule="PerspectivePhotoBrowser" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-1" width="556" height="404"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="556" height="404"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GF5-GK-QPr">
+                                                    <rect key="frame" x="8" y="8" width="540" height="388"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Eca-e5-PCs">
+                                                            <rect key="frame" x="0.0" y="0.0" width="540" height="388"/>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="Eca-e5-PCs" firstAttribute="leading" secondItem="GF5-GK-QPr" secondAttribute="leading" id="7W7-Nf-JE7"/>
+                                                        <constraint firstItem="Eca-e5-PCs" firstAttribute="top" secondItem="GF5-GK-QPr" secondAttribute="top" id="ElA-3q-euA"/>
+                                                        <constraint firstItem="Eca-e5-PCs" firstAttribute="centerY" secondItem="GF5-GK-QPr" secondAttribute="centerY" id="XjT-Yk-5lT"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Eca-e5-PCs" secondAttribute="trailing" id="buT-jp-gPN"/>
+                                                        <constraint firstItem="Eca-e5-PCs" firstAttribute="centerX" secondItem="GF5-GK-QPr" secondAttribute="centerX" id="no6-Eb-4v3"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Eca-e5-PCs" secondAttribute="bottom" id="xIY-Yf-ymJ"/>
+                                                    </constraints>
+                                                </scrollView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="GF5-GK-QPr" firstAttribute="top" secondItem="6sD-Tz-mar" secondAttribute="topMargin" id="87s-1k-n7o"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="GF5-GK-QPr" secondAttribute="bottom" id="NFM-td-n17"/>
+                                            <constraint firstItem="GF5-GK-QPr" firstAttribute="leading" secondItem="6sD-Tz-mar" secondAttribute="leadingMargin" id="bci-Lu-wnA"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="GF5-GK-QPr" secondAttribute="trailing" id="h0o-ei-3K5"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="Eca-e5-PCs" id="YOg-0v-rie"/>
+                                            <outlet property="scrollView" destination="GF5-GK-QPr" id="SvN-Ka-XUz"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="rfV-fI-xpM" id="bgE-GK-x5b"/>
+                                    <outlet property="delegate" destination="rfV-fI-xpM" id="Mmn-ob-OKR"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Pqg-cL-gh4" firstAttribute="centerY" secondItem="voV-Jc-3zW" secondAttribute="centerY" id="9cq-NG-mtv"/>
+                            <constraint firstItem="Pqg-cL-gh4" firstAttribute="centerX" secondItem="voV-Jc-3zW" secondAttribute="centerX" id="OEq-0f-tb3"/>
+                            <constraint firstItem="Pqg-cL-gh4" firstAttribute="leading" secondItem="voV-Jc-3zW" secondAttribute="leadingMargin" constant="-20" id="SAz-Vk-fuu">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstAttribute="trailingMargin" secondItem="Pqg-cL-gh4" secondAttribute="trailing" constant="-20" id="Xvq-YS-eCk">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="Pqg-cL-gh4" firstAttribute="top" secondItem="RTj-fR-oCm" secondAttribute="bottom" id="rT8-g2-ZYa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Pqg-cL-gh4" id="lAS-66-heS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dli-TH-lt5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464" y="193"/>
+        </scene>
+        <!--Perspective Thumbnail View Controller-->
+        <scene sceneID="pXl-Mg-XUG">
+            <objects>
+                <viewController storyboardIdentifier="PerspectiveThumbnailViewController" id="ONx-Zl-C7l" customClass="PerspectiveThumbnailViewController" customModule="PerspectivePhotoBrowser" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6ed-Y3-LIv"/>
+                        <viewControllerLayoutGuide type="bottom" id="LPE-Lh-neS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Y8A-Wf-99i">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e6m-Y4-S0Q">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="T62-SU-BgY">
+                                    <size key="itemSize" width="113" height="128"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PerspectiveThumbnailCell" id="m2N-CM-hSH" customClass="PerspectiveThumbnailCell" customModule="PerspectivePhotoBrowser" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-21" width="113" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="113" height="128"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YD5-06-apb">
+                                                    <rect key="frame" x="0.0" y="0.0" width="113" height="128"/>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="YD5-06-apb" firstAttribute="top" secondItem="m2N-CM-hSH" secondAttribute="topMargin" constant="-8" id="23R-Ac-k6P">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                            </constraint>
+                                            <constraint firstAttribute="bottomMargin" secondItem="YD5-06-apb" secondAttribute="bottom" constant="-8" id="Gyf-hk-FE6">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="-5"/>
+                                            </constraint>
+                                            <constraint firstItem="YD5-06-apb" firstAttribute="leading" secondItem="m2N-CM-hSH" secondAttribute="leadingMargin" constant="-8" id="SxK-DQ-6p8">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="-5"/>
+                                            </constraint>
+                                            <constraint firstAttribute="trailingMargin" secondItem="YD5-06-apb" secondAttribute="trailing" constant="-8" id="X8H-yQ-aIB">
+                                                <variation key="heightClass=regular-widthClass=compact" constant="-5"/>
+                                            </constraint>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="photoImageView" destination="YD5-06-apb" id="aoE-Gc-io5"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="ONx-Zl-C7l" id="GYi-Ti-g7o"/>
+                                    <outlet property="delegate" destination="ONx-Zl-C7l" id="xiv-Jc-kD0"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="e6m-Y4-S0Q" firstAttribute="leading" secondItem="Y8A-Wf-99i" secondAttribute="leadingMargin" constant="-20" id="AGl-fH-2um">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="e6m-Y4-S0Q" firstAttribute="top" secondItem="6ed-Y3-LIv" secondAttribute="bottom" id="HJ5-2y-JUL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="e6m-Y4-S0Q" secondAttribute="trailing" constant="-20" id="duY-sO-3mb">
+                                <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="LPE-Lh-neS" firstAttribute="top" secondItem="e6m-Y4-S0Q" secondAttribute="bottom" id="izu-Uj-Znw"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="e6m-Y4-S0Q" id="CxP-Yg-9aB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Fy-Ia-ouw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1464" y="666"/>
+        </scene>
+    </scenes>
+</document>

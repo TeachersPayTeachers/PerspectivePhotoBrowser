@@ -7,12 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		59D7567A1C3ED35D0068612E /* image-8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59D756791C3ED35D0068612E /* image-8.jpg */; };
+		59D756821C3ED3A70068612E /* image-7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59D7567B1C3ED3A70068612E /* image-7.jpg */; };
+		59D756831C3ED3A70068612E /* image-6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59D7567C1C3ED3A70068612E /* image-6.jpg */; };
+		59D756841C3ED3A70068612E /* image-5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59D7567D1C3ED3A70068612E /* image-5.jpg */; };
+		59D756851C3ED3A70068612E /* image-4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59D7567E1C3ED3A70068612E /* image-4.jpg */; };
+		59D756861C3ED3A70068612E /* image-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59D7567F1C3ED3A70068612E /* image-3.jpg */; };
+		59D756871C3ED3A70068612E /* image-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59D756801C3ED3A70068612E /* image-2.jpg */; };
+		59D756881C3ED3A70068612E /* image-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 59D756811C3ED3A70068612E /* image-1.jpg */; };
+		59DBC13C1C3DA241004E1CC7 /* image-0.png in Resources */ = {isa = PBXBuildFile; fileRef = 59DBC13B1C3DA241004E1CC7 /* image-0.png */; };
+		59DBC13E1C3DA256004E1CC7 /* image-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 59DBC13D1C3DA256004E1CC7 /* image-1.png */; };
+		59DBC1481C3DB3B2004E1CC7 /* image-2.png in Resources */ = {isa = PBXBuildFile; fileRef = 59DBC1471C3DB3B2004E1CC7 /* image-2.png */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
 		607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 607FACD91AFB9204008FA782 /* Main.storyboard */; };
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
-		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		652D077446BC53A76FA77549 /* Pods_PerspectivePhotoBrowser_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C525B4FBAE7E08847CF98296 /* Pods_PerspectivePhotoBrowser_Tests.framework */; };
 		D46B217B081159D83C64EE9D /* Pods_PerspectivePhotoBrowser_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2D1FA41C3BBD0AEDF25ABD4 /* Pods_PerspectivePhotoBrowser_Example.framework */; };
 /* End PBXBuildFile section */
@@ -30,6 +40,17 @@
 /* Begin PBXFileReference section */
 		1F856DAE8FE287D6144869CF /* Pods-PerspectivePhotoBrowser_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PerspectivePhotoBrowser_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PerspectivePhotoBrowser_Tests/Pods-PerspectivePhotoBrowser_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C28DD6223F334B340BB4181 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		59D756791C3ED35D0068612E /* image-8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-8.jpg"; sourceTree = "<group>"; };
+		59D7567B1C3ED3A70068612E /* image-7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-7.jpg"; sourceTree = "<group>"; };
+		59D7567C1C3ED3A70068612E /* image-6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-6.jpg"; sourceTree = "<group>"; };
+		59D7567D1C3ED3A70068612E /* image-5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-5.jpg"; sourceTree = "<group>"; };
+		59D7567E1C3ED3A70068612E /* image-4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-4.jpg"; sourceTree = "<group>"; };
+		59D7567F1C3ED3A70068612E /* image-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-3.jpg"; sourceTree = "<group>"; };
+		59D756801C3ED3A70068612E /* image-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-2.jpg"; sourceTree = "<group>"; };
+		59D756811C3ED3A70068612E /* image-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "image-1.jpg"; sourceTree = "<group>"; };
+		59DBC13B1C3DA241004E1CC7 /* image-0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-0.png"; sourceTree = "<group>"; };
+		59DBC13D1C3DA256004E1CC7 /* image-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-1.png"; sourceTree = "<group>"; };
+		59DBC1471C3DB3B2004E1CC7 /* image-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "image-2.png"; sourceTree = "<group>"; };
 		5E7131DD4EC535FB271395ED /* PerspectivePhotoBrowser.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = PerspectivePhotoBrowser.podspec; path = ../PerspectivePhotoBrowser.podspec; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* PerspectivePhotoBrowser_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PerspectivePhotoBrowser_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACD41AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,6 +139,17 @@
 		607FACD31AFB9204008FA782 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				59D756791C3ED35D0068612E /* image-8.jpg */,
+				59D7567B1C3ED3A70068612E /* image-7.jpg */,
+				59D7567C1C3ED3A70068612E /* image-6.jpg */,
+				59D7567D1C3ED3A70068612E /* image-5.jpg */,
+				59D7567E1C3ED3A70068612E /* image-4.jpg */,
+				59D7567F1C3ED3A70068612E /* image-3.jpg */,
+				59D756801C3ED3A70068612E /* image-2.jpg */,
+				59D756811C3ED3A70068612E /* image-1.jpg */,
+				59DBC13B1C3DA241004E1CC7 /* image-0.png */,
+				59DBC13D1C3DA256004E1CC7 /* image-1.png */,
+				59DBC1471C3DB3B2004E1CC7 /* image-2.png */,
 				607FACD41AFB9204008FA782 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -246,9 +278,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59D7567A1C3ED35D0068612E /* image-8.jpg in Resources */,
 				607FACDB1AFB9204008FA782 /* Main.storyboard in Resources */,
 				607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */,
+				59DBC13E1C3DA256004E1CC7 /* image-1.png in Resources */,
+				59D756841C3ED3A70068612E /* image-5.jpg in Resources */,
+				59D756881C3ED3A70068612E /* image-1.jpg in Resources */,
+				59DBC1481C3DB3B2004E1CC7 /* image-2.png in Resources */,
 				607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */,
+				59D756861C3ED3A70068612E /* image-3.jpg in Resources */,
+				59D756871C3ED3A70068612E /* image-2.jpg in Resources */,
+				59D756821C3ED3A70068612E /* image-7.jpg in Resources */,
+				59DBC13C1C3DA241004E1CC7 /* image-0.png in Resources */,
+				59D756851C3ED3A70068612E /* image-4.jpg in Resources */,
+				59D756831C3ED3A70068612E /* image-6.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +411,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				607FACEC1AFB9204008FA782 /* Tests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -494,6 +536,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -507,6 +550,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

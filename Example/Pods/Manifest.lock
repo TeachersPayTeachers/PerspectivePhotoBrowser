@@ -1,0 +1,19 @@
+PODS:
+  - PerspectivePhotoBrowser (0.1.0):
+    - SDWebImage (~> 3.7)
+  - SDWebImage (3.7.3):
+    - SDWebImage/Core (= 3.7.3)
+  - SDWebImage/Core (3.7.3)
+
+DEPENDENCIES:
+  - PerspectivePhotoBrowser (from `../`)
+
+EXTERNAL SOURCES:
+  PerspectivePhotoBrowser:
+    :path: ../
+
+SPEC CHECKSUMS:
+  PerspectivePhotoBrowser: 5f807e07d4deea035646e5c69ba9ca85a26e1878
+  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+
+COCOAPODS: 0.39.0

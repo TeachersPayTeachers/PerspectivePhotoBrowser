@@ -1,0 +1,6 @@
+framework module Pods_PerspectivePhotoBrowser_Example {
+  umbrella header "Pods-PerspectivePhotoBrowser_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,3 +1,5 @@
+platform :ios, '8.0'
+
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
@@ -7,9 +9,4 @@ end
 
 target 'PerspectivePhotoBrowser_Tests', :exclusive => true do
   pod "PerspectivePhotoBrowser", :path => "../"
-
-  pod 'Quick', '~> 0.8.0'
-  pod 'Nimble', '3.0.0'
-  pod 'FBSnapshotTestCase'
-  pod 'Nimble-Snapshots'
 end

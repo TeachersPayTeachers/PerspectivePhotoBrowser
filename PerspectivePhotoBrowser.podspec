@@ -9,32 +9,25 @@
 Pod::Spec.new do |s|
   s.name             = "PerspectivePhotoBrowser"
   s.version          = "0.1.0"
-  s.summary          = "A short description of PerspectivePhotoBrowser."
+  s.summary          = "Native PhotoBrowser for ios"
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!  
-  s.description      = <<-DESC
-                       DESC
+  s.description      = "A unique photobrowser based on UICollectionView"
 
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/PerspectivePhotoBrowser"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
+  s.homepage         = "https://github.com/teacherspayteachers/PerspectivePhotoBrowser"
   s.license          = 'MIT'
-  s.author           = { "amol-c" => "amol@teacherspayteachers.com" }
-  s.source           = { :git => "https://github.com/<GITHUB_USERNAME>/PerspectivePhotoBrowser.git", :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.author           = { "amol-c" => "chaudhari.amol.sopan@gmail.com", "jamesdo" => "james.s.do@gmail.com" }
+  s.source           = { :git => "https://github.com/teacherspayteachers/PerspectivePhotoBrowser.git", :tag => s.version.to_s }
+  s.social_media_url = 'https://twitter.com/TpTdotcom'
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
 
-  s.source_files = 'Pod/Classes/**/*'
+  s.source_files = 'Pod/Classes/**/*.{swift}'
   s.resource_bundles = {
     'PerspectivePhotoBrowser' => ['Pod/Assets/*.png']
   }
+  s.resources = ["Pod/Resources/**/*.storyboard"]
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  s.frameworks = 'UIKit'
+  s.dependency 'SDWebImage', '~>3.7'
 end
