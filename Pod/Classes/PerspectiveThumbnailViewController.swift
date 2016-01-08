@@ -8,26 +8,21 @@
 
 import UIKit
 
-class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoHolder {
+class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoViewer {
+
+  // MARK: PerspectivePhotoViewer
   var photoArray: [PerspectivePhoto]!
-  @IBOutlet var collectionView: UICollectionView!
-  var highlightBar: UIView!
+  var startIndex: Int = 0
 
   var userDidSelectThumbnail: (Int -> Void)!
 
+  @IBOutlet var collectionView: UICollectionView!
+  var highlightBar: UIView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     self.initializeCollectionView()
     self.collectionView.backgroundColor = UIColor.whiteColor()
-  }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-  override func viewWillAppear(animated: Bool) {
-    super.viewWillAppear(animated)
   }
 
   func selectThumbnailAt(index index: Int) {
@@ -36,12 +31,13 @@ class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoHold
     self.collectionView.scrollToItemAtIndexPath(newIndexPath, atScrollPosition: .None, animated: true)
   }
 
-  private func userShouldScrollTo(indexPath: NSIndexPath) {
+  private func userShouldScrollTo(indexPath: NSIndexPath, animated: Bool = true) {
     CATransaction.setCompletionBlock { () -> Void in
       let cell = self.collectionView(self.collectionView, cellForItemAtIndexPath: indexPath)
-      UIView.animateWithDuration(0.4, animations: { () -> Void in
+      UIView.animateWithDuration(animated ? 0.4 : 0.0, animations: { () -> Void in
         self.highlightBar.center = CGPoint(x: cell.center.x, y: cell.center.y * 2)
         }, completion: .None)
+      self.collectionView.scrollRectToVisible(cell.frame, animated: animated)
     }
   }
 
@@ -56,7 +52,7 @@ class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoHold
 
     dispatch_async(dispatch_get_main_queue()) { () -> Void in
       self.collectionView.reloadData()
-      self.userShouldScrollTo(NSIndexPath(forItem: 0, inSection: 0))
+      self.userShouldScrollTo(NSIndexPath(forItem: self.startIndex, inSection: 0), animated: false)
     }
   }
 }
