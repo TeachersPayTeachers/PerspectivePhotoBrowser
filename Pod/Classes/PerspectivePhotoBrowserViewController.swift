@@ -1,50 +1,33 @@
-//
-//  PerspectivePhotoBrowserViewController.swift
-//  Pods
-//
-//  Created by Amol Chaudhari on 1/5/16.
-//
-//
 
 import UIKit
 
-protocol PerspectivePhotoHolder {
+protocol PerspectivePhotoViewer {
   var photoArray: [PerspectivePhoto]! { get set }
+  var startIndex: Int { get set }
 }
 
-public class PerspectiveNavigationController: UINavigationController {
-  var perspectivePhotoBrowserViewController: PerspectivePhotoBrowserViewController!
+public class PerspectivePhotoBrowserViewController: UIViewController, PerspectivePhotoViewer {
 
-  // MARK: Public
-  public class func perspectiveNavigationControllerWith(photoArray: [PerspectivePhoto]) -> PerspectiveNavigationController {
-    let perspectiveNavigationController = UIStoryboard(name: "PerspectivePhotoBrowserStoryboard", bundle: NSBundle(forClass: self)).instantiateInitialViewController() as! PerspectiveNavigationController
+  // MARK: PerspectivePhotoViewer
+  var photoArray: [PerspectivePhoto]!
+  var startIndex: Int = 0
 
-    let perspectivePhotoBrowserViewController = perspectiveNavigationController.viewControllers[0] as! PerspectivePhotoBrowserViewController
-    perspectivePhotoBrowserViewController.photoArray = photoArray
-
-    return perspectiveNavigationController
-  }
-}
-
-
-public class PerspectivePhotoBrowserViewController: UIViewController, PerspectivePhotoHolder {
   var photoHolderViewController: PerspectivePhotoHolderViewController!
   var thumbnailViewController: PerspectiveThumbnailViewController!
-  var photoArray: [PerspectivePhoto]!
 
   // MARK: Actions
   @IBAction func userDidPress(doneButton sender: UIButton) {
     self.dismissViewControllerAnimated(true, completion: .None)
   }
-  
+
   public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
     super.prepareForSegue(segue, sender: sender)
 
     if segue.identifier == "PerspectivePhotoHolderViewController" {
       self.photoHolderViewController = segue.destinationViewController as! PerspectivePhotoHolderViewController
       self.photoHolderViewController.photoArray = self.photoArray
-
-      self.photoHolderViewController.userDidScrollTo = { index in
+      self.photoHolderViewController.startIndex = startIndex
+      self.photoHolderViewController.userDidScrollTo = { [unowned self] index in
         if let index = index {
           self.thumbnailViewController.selectThumbnailAt(index: index)
         }
@@ -56,10 +39,11 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
     if segue.identifier == "PerspectiveThumbnailViewController" {
       self.thumbnailViewController = segue.destinationViewController as! PerspectiveThumbnailViewController
       self.thumbnailViewController.photoArray = self.photoArray
-
-      self.thumbnailViewController.userDidSelectThumbnail = { index in
-        self.photoHolderViewController.userDidSelectThumbnailAt(index)
+      self.thumbnailViewController.startIndex = startIndex
+      self.thumbnailViewController.userDidSelectThumbnail = { [unowned self] index in
+        self.photoHolderViewController.userDidSelectThumbnailAt(index: index)
       }
+
       return
     }
   }

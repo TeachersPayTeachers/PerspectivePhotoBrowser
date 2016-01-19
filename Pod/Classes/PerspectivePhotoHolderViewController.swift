@@ -2,8 +2,12 @@
 import UIKit
 import SDWebImage
 
-class PerspectivePhotoHolderViewController: UIViewController, PerspectivePhotoHolder {
+class PerspectivePhotoHolderViewController: UIViewController, PerspectivePhotoViewer {
+
+  // MARK: PerspectivePhotoViewer
   var photoArray: [PerspectivePhoto]!
+  var startIndex: Int = 0
+
   @IBOutlet var collectionView: UICollectionView!
   var userDidScrollTo: (Int? -> Void)!
 
@@ -12,10 +16,18 @@ class PerspectivePhotoHolderViewController: UIViewController, PerspectivePhotoHo
     self.collectionView.showsHorizontalScrollIndicator = false
     self.collectionView.backgroundColor = UIColor.whiteColor()
     self.automaticallyAdjustsScrollViewInsets = false
+
+    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+      self.collectionView.reloadData()
+      self.userDidSelectThumbnailAt(index: self.startIndex, animated: false)
+    }
   }
 
-  func userDidSelectThumbnailAt(index: Int) {
-    self.collectionView.scrollToItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0), atScrollPosition: .None, animated: true)
+  func userDidSelectThumbnailAt(index index: Int, animated: Bool = true) {
+    let indexPath = NSIndexPath(forItem: index, inSection: 0)
+
+    let cell = self.collectionView(self.collectionView, cellForItemAtIndexPath: indexPath)
+    self.collectionView.scrollRectToVisible(cell.frame, animated: animated)
   }
 
   func scrollViewDidEndDecelerating(scrollView: UIScrollView) {

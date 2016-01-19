@@ -29,20 +29,7 @@ class ViewController: UIViewController {
       let perspectivePhoto = PerspectivePhoto(URL: .None, photo: image)
       photoArray.append(perspectivePhoto)
     }
-
-//    for var i = 0; i<totalImageCount; i++ {
-//      let image = UIImage(named: "image-\(i).png")
-//      let perspectivePhoto = PerspectivePhoto(URL: .None, photo: image)
-//      photoArray.append(perspectivePhoto)
-//    }
-//
-//    for var i = 0; i<totalImageCount; i++ {
-//      let image = UIImage(named: "image-\(i).png")
-//      let perspectivePhoto = PerspectivePhoto(URL: .None, photo: image)
-//      photoArray.append(perspectivePhoto)
-//    }
-//    
-    let perspectivePhotoBrowser = PerspectiveNavigationController.perspectiveNavigationControllerWith(photoArray)
+    let perspectivePhotoBrowser = PerspectiveNavigationController.perspectiveNavigationControllerWith(photoArray, startIndex: 0)
     self.presentViewController(perspectivePhotoBrowser, animated: true, completion: .None)
   }
 }
