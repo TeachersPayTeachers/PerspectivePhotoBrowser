@@ -30,6 +30,11 @@ class ViewController: UIViewController {
       photoArray.append(perspectivePhoto)
     }
     let perspectivePhotoBrowser = PerspectiveNavigationController.perspectiveNavigationControllerWith(photoArray, startIndex: 0)
+    let _ = perspectivePhotoBrowser.view
+    // Change color of bottom bar
+    let thumbnailImageViewController = perspectivePhotoBrowser.perspectivePhotoBrowserViewController.thumbnailViewController
+    thumbnailImageViewController.highlightBar.backgroundColor = UIColor.greenColor()
+
     self.presentViewController(perspectivePhotoBrowser, animated: true, completion: .None)
   }
 }

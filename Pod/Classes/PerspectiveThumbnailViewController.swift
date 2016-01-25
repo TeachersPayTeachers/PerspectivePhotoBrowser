@@ -61,11 +61,11 @@ public class PerspectiveThumbnailViewController: UIViewController, PerspectivePh
 }
 
 extension PerspectiveThumbnailViewController: UICollectionViewDataSource {
-  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return photoArray.count
   }
 
-  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+  public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let thumbnailCell = collectionView.dequeueReusableCellWithReuseIdentifier("PerspectiveThumbnailCell", forIndexPath: indexPath) as! PerspectiveThumbnailCell
     let perspectivePhoto = photoArray[indexPath.row]
 
@@ -81,10 +81,10 @@ extension PerspectiveThumbnailViewController: UICollectionViewDataSource {
 }
 
 extension PerspectiveThumbnailViewController: UICollectionViewDelegateFlowLayout {
-  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+  public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     return CGSizeMake(collectionView.widthFor(6), collectionView.bounds.height)
   }
-  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+  public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     self.userDidSelectThumbnail(indexPath.row)
     self.userShouldScrollTo(indexPath)
   }

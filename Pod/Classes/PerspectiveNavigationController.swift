@@ -11,6 +11,8 @@ public class PerspectiveNavigationController: UINavigationController {
     let perspectivePhotoBrowserViewController = perspectiveNavigationController.viewControllers[0] as! PerspectivePhotoBrowserViewController
     perspectivePhotoBrowserViewController.photoArray = photoArray
     perspectivePhotoBrowserViewController.startIndex = startIndex
+    let _ = perspectiveNavigationController.view
+    let _ = perspectivePhotoBrowserViewController.view
 
     perspectiveNavigationController.perspectivePhotoBrowserViewController = perspectivePhotoBrowserViewController
     return perspectiveNavigationController

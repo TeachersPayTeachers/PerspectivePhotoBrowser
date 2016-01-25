@@ -16,6 +16,10 @@ public class PerspectivePhotoHolderViewController: UIViewController, Perspective
     self.collectionView.showsHorizontalScrollIndicator = false
     self.collectionView.backgroundColor = UIColor.whiteColor()
     self.automaticallyAdjustsScrollViewInsets = false
+  }
+
+  public override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
 
     dispatch_async(dispatch_get_main_queue()) { () -> Void in
       self.collectionView.reloadData()
