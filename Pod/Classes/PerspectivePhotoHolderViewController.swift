@@ -2,7 +2,7 @@
 import UIKit
 import SDWebImage
 
-class PerspectivePhotoHolderViewController: UIViewController, PerspectivePhotoViewer {
+public class PerspectivePhotoHolderViewController: UIViewController, PerspectivePhotoViewer {
 
   // MARK: PerspectivePhotoViewer
   var photoArray: [PerspectivePhoto]!
@@ -11,11 +11,15 @@ class PerspectivePhotoHolderViewController: UIViewController, PerspectivePhotoVi
   @IBOutlet var collectionView: UICollectionView!
   var userDidScrollTo: (Int? -> Void)!
 
-  override func viewDidLoad() {
+  override public func viewDidLoad() {
     super.viewDidLoad()
     self.collectionView.showsHorizontalScrollIndicator = false
     self.collectionView.backgroundColor = UIColor.whiteColor()
     self.automaticallyAdjustsScrollViewInsets = false
+  }
+
+  public override func viewWillAppear(animated: Bool) {
+    super.viewWillAppear(animated)
 
     dispatch_async(dispatch_get_main_queue()) { () -> Void in
       self.collectionView.reloadData()
@@ -30,7 +34,7 @@ class PerspectivePhotoHolderViewController: UIViewController, PerspectivePhotoVi
     self.collectionView.scrollRectToVisible(cell.frame, animated: animated)
   }
 
-  func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+  public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
     var cell: UICollectionViewCell?
 
     var visibleCells = self.collectionView.visibleCells()
@@ -49,11 +53,11 @@ class PerspectivePhotoHolderViewController: UIViewController, PerspectivePhotoVi
 }
 
 extension PerspectivePhotoHolderViewController: UICollectionViewDataSource {
-  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return photoArray.count
   }
 
-  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+  public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let photoHolderCell = collectionView.dequeueReusableCellWithReuseIdentifier("PerspectivePhotoHolderCell", forIndexPath: indexPath) as! PerspectivePhotoHolderCell
     let perspectivePhoto = photoArray[indexPath.row]
 
@@ -68,7 +72,7 @@ extension PerspectivePhotoHolderViewController: UICollectionViewDataSource {
 }
 
 extension PerspectivePhotoHolderViewController: UICollectionViewDelegateFlowLayout {
-  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+  public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     return CGSizeMake(collectionView.widthFor(1), collectionView.minimumHeight())
   }
 }

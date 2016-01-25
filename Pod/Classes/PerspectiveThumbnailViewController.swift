@@ -8,18 +8,21 @@
 
 import UIKit
 
-class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoViewer {
+public class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoViewer {
+
+  // MARK: PublicVar
+  public var highlightBar: UIView!
 
   // MARK: PerspectivePhotoViewer
   var photoArray: [PerspectivePhoto]!
   var startIndex: Int = 0
 
+  // MARK: InternalVar
   var userDidSelectThumbnail: (Int -> Void)!
 
   @IBOutlet var collectionView: UICollectionView!
-  var highlightBar: UIView!
-  
-  override func viewDidLoad() {
+
+  override public func viewDidLoad() {
     super.viewDidLoad()
     self.initializeCollectionView()
     self.collectionView.backgroundColor = UIColor.whiteColor()
@@ -58,11 +61,11 @@ class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoView
 }
 
 extension PerspectiveThumbnailViewController: UICollectionViewDataSource {
-  func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return photoArray.count
   }
 
-  func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
+  public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
     let thumbnailCell = collectionView.dequeueReusableCellWithReuseIdentifier("PerspectiveThumbnailCell", forIndexPath: indexPath) as! PerspectiveThumbnailCell
     let perspectivePhoto = photoArray[indexPath.row]
 
@@ -78,10 +81,10 @@ extension PerspectiveThumbnailViewController: UICollectionViewDataSource {
 }
 
 extension PerspectiveThumbnailViewController: UICollectionViewDelegateFlowLayout {
-  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+  public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     return CGSizeMake(collectionView.widthFor(6), collectionView.bounds.height)
   }
-  func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+  public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     self.userDidSelectThumbnail(indexPath.row)
     self.userShouldScrollTo(indexPath)
   }
