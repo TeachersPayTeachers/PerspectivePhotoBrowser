@@ -2,7 +2,7 @@
 import UIKit
 
 public class PerspectiveNavigationController: UINavigationController {
-  var perspectivePhotoBrowserViewController: PerspectivePhotoBrowserViewController!
+  public var perspectivePhotoBrowserViewController: PerspectivePhotoBrowserViewController!
 
   // MARK: Public
   public class func perspectiveNavigationControllerWith(photoArray: [PerspectivePhoto], startIndex: Int = 0) -> PerspectiveNavigationController {
@@ -12,6 +12,7 @@ public class PerspectiveNavigationController: UINavigationController {
     perspectivePhotoBrowserViewController.photoArray = photoArray
     perspectivePhotoBrowserViewController.startIndex = startIndex
 
+    perspectiveNavigationController.perspectivePhotoBrowserViewController = perspectivePhotoBrowserViewController
     return perspectiveNavigationController
   }
 }

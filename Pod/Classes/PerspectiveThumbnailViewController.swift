@@ -8,18 +8,21 @@
 
 import UIKit
 
-class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoViewer {
+public class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoViewer {
+
+  // MARK: PublicVar
+  public var highlightBar: UIView!
 
   // MARK: PerspectivePhotoViewer
   var photoArray: [PerspectivePhoto]!
   var startIndex: Int = 0
 
+  // MARK: InternalVar
   var userDidSelectThumbnail: (Int -> Void)!
 
   @IBOutlet var collectionView: UICollectionView!
-  var highlightBar: UIView!
-  
-  override func viewDidLoad() {
+
+  override public func viewDidLoad() {
     super.viewDidLoad()
     self.initializeCollectionView()
     self.collectionView.backgroundColor = UIColor.whiteColor()

@@ -12,8 +12,9 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
   var photoArray: [PerspectivePhoto]!
   var startIndex: Int = 0
 
-  var photoHolderViewController: PerspectivePhotoHolderViewController!
-  var thumbnailViewController: PerspectiveThumbnailViewController!
+  // MARK: PublicVar
+  public var photoHolderViewController: PerspectivePhotoHolderViewController!
+  public var thumbnailViewController: PerspectiveThumbnailViewController!
 
   // MARK: Actions
   @IBAction func userDidPress(doneButton sender: UIButton) {
