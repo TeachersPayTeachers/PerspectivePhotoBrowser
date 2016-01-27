@@ -80,6 +80,6 @@ extension PerspectivePhotoHolderViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegateFlowLayout
 extension PerspectivePhotoHolderViewController: UICollectionViewDelegateFlowLayout {
   public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    return CGSizeMake(collectionView.widthFor(1), collectionView.minimumHeight())
+    return CGSizeMake(collectionView.widthForCellWith(1), collectionView.minimumHeight())
   }
 }

@@ -1,6 +1,9 @@
 
 import UIKit
 
+private let NumberOfColumns: CGFloat = 6
+private let HighlightBarHeight: CGFloat = 10
+
 public class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoViewer {
 
   // MARK: PublicVar
@@ -39,9 +42,8 @@ public class PerspectiveThumbnailViewController: UIViewController, PerspectivePh
 
   private func initializeCollectionView() {
     self.collectionView.showsHorizontalScrollIndicator = false
-    let cellSize = self.collectionView(self.collectionView, layout: self.collectionView.collectionViewLayout, sizeForItemAtIndexPath: NSIndexPath(forItem: 0, inSection: 0))
+    self.highlightBar = UIView()
 
-    self.highlightBar = UIView(frame:CGRectMake(0,cellSize.height,cellSize.width,10))
     self.highlightBar.backgroundColor = UIColor.redColor()
     self.collectionView.addSubview(self.highlightBar)
     self.collectionView.bringSubviewToFront(self.highlightBar)
@@ -68,39 +70,27 @@ extension PerspectiveThumbnailViewController: UICollectionViewDataSource {
       thumbnailCell.photoImageView.sd_setImageWithURL(photoURL)
     }
 
-    self.highlightBar.bounds = CGRectMake(0, 0, thumbnailCell.frame.width, 10)
     return thumbnailCell
   }
 }
 
 extension PerspectiveThumbnailViewController: UICollectionViewDelegateFlowLayout {
   public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    return CGSizeMake(collectionView.widthFor(6), collectionView.bounds.height)
+    let cellWidth = collectionView.widthForCellWith(NumberOfColumns)
+    self.highlightBar.frame = CGRectMake(0, 0, cellWidth, HighlightBarHeight)
+    return CGSizeMake(cellWidth, collectionView.bounds.height)
   }
   public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
     self.userDidSelectThumbnail(indexPath.row)
     self.userShouldScrollTo(indexPath)
   }
-}
 
-extension UICollectionView {
-  func widthFor(numberOfColumns: CGFloat) -> CGFloat {
-    let viewWidth = self.bounds.width ?? 0
-    let collectionViewFlowLayout = self.collectionViewLayout as! UICollectionViewFlowLayout
-    let leftInset = collectionViewFlowLayout.sectionInset.left
-    let rightInset = collectionViewFlowLayout.sectionInset.right
-    let lineSpacing = collectionViewFlowLayout.minimumLineSpacing
-    let contentWidth = (viewWidth - leftInset - rightInset - lineSpacing * CGFloat(numberOfColumns - 1)) / CGFloat(numberOfColumns)
-    return contentWidth
-  }
+  public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+    let numberOfColumns = CGFloat(self.photoArray.count)
+    let cellWidth = collectionView.widthForCellWith(NumberOfColumns)
+    var leftInset = (self.collectionView.bounds.size.width - cellWidth * numberOfColumns)/2
 
-  func minimumHeight() -> CGFloat {
-    let viewHeight = self.bounds.height ?? 0
-
-    let collectionViewFlowLayout = self.collectionViewLayout as! UICollectionViewFlowLayout
-    let totalHeight = viewHeight - collectionViewFlowLayout.sectionInset.top - collectionViewFlowLayout.sectionInset.bottom - self.contentInset.bottom - self.contentInset.top
-    
-    return totalHeight
+    leftInset = leftInset > 0 ? leftInset : 0
+    return UIEdgeInsetsMake(0, leftInset, 0, 0)
   }
 }
-
