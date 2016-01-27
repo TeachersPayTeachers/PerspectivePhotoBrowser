@@ -27,6 +27,7 @@
 		551CC380222CFBA67164173E4E448266 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A198E42B4D258867AC9E7A3290D81AC /* UIImage+MultiFormat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		591DA8311C595DC800546833 /* PerspectivePhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591DA8301C595DC800546833 /* PerspectivePhotoViewer.swift */; };
 		591DA8341C59654D00546833 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591DA8331C59654D00546833 /* UIScrollView.swift */; };
+		591DA8361C59784D00546833 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591DA8351C59784D00546833 /* UICollectionView.swift */; };
 		596D477E1C40595F00A183CD /* PerspectiveNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596D477D1C40595F00A183CD /* PerspectiveNavigationController.swift */; };
 		59F24E48E5F97F10606E4A04F14BE083 /* Pods-PerspectivePhotoBrowser_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E459ADEEE58F845E60BBC6514D2E326 /* Pods-PerspectivePhotoBrowser_Tests-dummy.m */; };
 		5ED3BEA1E5D930A3E9EBB3CC401A4B22 /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BA89A282AAF4E3CFA31368FB0135E7FF /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -133,6 +134,7 @@
 		52A437FD8406E2E7671D4ED016995382 /* Pods-PerspectivePhotoBrowser_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PerspectivePhotoBrowser_Example-umbrella.h"; sourceTree = "<group>"; };
 		591DA8301C595DC800546833 /* PerspectivePhotoViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectivePhotoViewer.swift; sourceTree = "<group>"; };
 		591DA8331C59654D00546833 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
+		591DA8351C59784D00546833 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		596D477D1C40595F00A183CD /* PerspectiveNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveNavigationController.swift; sourceTree = "<group>"; };
 		5A58EF830F04149AB69CD818FA86AF7F /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		5C1AB7C24C2B337D1A5F2CC7EC0433CC /* PerspectiveThumbnailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerspectiveThumbnailViewController.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				591DA8331C59654D00546833 /* UIScrollView.swift */,
+				591DA8351C59784D00546833 /* UICollectionView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				F61C4B688017D8DC3D38AD555DDD59C0 /* PerspectivePhotoHolderViewController.swift in Sources */,
 				71654682AFC7A0C40E311C850A2C86EF /* PerspectiveThumbnailCell.swift in Sources */,
 				596D477E1C40595F00A183CD /* PerspectiveNavigationController.swift in Sources */,
+				591DA8361C59784D00546833 /* UICollectionView.swift in Sources */,
 				1C53A71B08550720283413B9EF739C1B /* PerspectiveThumbnailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
