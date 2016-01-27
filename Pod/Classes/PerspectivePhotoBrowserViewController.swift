@@ -1,11 +1,6 @@
 
 import UIKit
 
-protocol PerspectivePhotoViewer {
-  var photoArray: [PerspectivePhoto]! { get set }
-  var startIndex: Int { get set }
-}
-
 public class PerspectivePhotoBrowserViewController: UIViewController, PerspectivePhotoViewer {
 
   // MARK: PerspectivePhotoViewer
@@ -16,9 +11,15 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
   public var photoHolderViewController: PerspectivePhotoHolderViewController!
   public var thumbnailViewController: PerspectiveThumbnailViewController!
 
-  // MARK: Actions
-  @IBAction func userDidPress(doneButton sender: UIButton) {
-    self.dismissViewControllerAnimated(true, completion: .None)
+  // MARK: Overrides
+  public override func viewDidLoad() {
+    super.viewDidLoad()
+
+    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "swipedVertically")
+    swipeGestureRecognizer.numberOfTouchesRequired = 1
+    swipeGestureRecognizer.direction = [.Down]
+
+    self.view.addGestureRecognizer(swipeGestureRecognizer)
   }
 
   public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -47,5 +48,15 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
 
       return
     }
+  }
+
+  // MARK: Actions
+  func swipedVertically() {
+    self.dismissViewControllerAnimated(true, completion: .None)
+  }
+  
+  // MARK: Actions
+  @IBAction func userDidPress(doneButton sender: UIButton) {
+    self.dismissViewControllerAnimated(true, completion: .None)
   }
 }

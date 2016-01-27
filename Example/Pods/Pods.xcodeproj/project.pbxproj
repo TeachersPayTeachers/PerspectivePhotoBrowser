@@ -25,6 +25,8 @@
 		4E1FFC8E145AFDB8E01DEF4C9BC011EC /* SDWebImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B0108355A9C23BB3F257AECD25538BF3 /* SDWebImageManager.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		500624653E91F389B003391798897596 /* PerspectivePhotoBrowserStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9622DB30386A8E5FF30301FDBE66725C /* PerspectivePhotoBrowserStoryboard.storyboard */; };
 		551CC380222CFBA67164173E4E448266 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A198E42B4D258867AC9E7A3290D81AC /* UIImage+MultiFormat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		591DA8311C595DC800546833 /* PerspectivePhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591DA8301C595DC800546833 /* PerspectivePhotoViewer.swift */; };
+		591DA8341C59654D00546833 /* UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591DA8331C59654D00546833 /* UIScrollView.swift */; };
 		596D477E1C40595F00A183CD /* PerspectiveNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 596D477D1C40595F00A183CD /* PerspectiveNavigationController.swift */; };
 		59F24E48E5F97F10606E4A04F14BE083 /* Pods-PerspectivePhotoBrowser_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E459ADEEE58F845E60BBC6514D2E326 /* Pods-PerspectivePhotoBrowser_Tests-dummy.m */; };
 		5ED3BEA1E5D930A3E9EBB3CC401A4B22 /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = BA89A282AAF4E3CFA31368FB0135E7FF /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -129,6 +131,8 @@
 		3F2887523B9B4D40509990168BA844F2 /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
 		504534D5B057E5B909D138A7100A8668 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52A437FD8406E2E7671D4ED016995382 /* Pods-PerspectivePhotoBrowser_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-PerspectivePhotoBrowser_Example-umbrella.h"; sourceTree = "<group>"; };
+		591DA8301C595DC800546833 /* PerspectivePhotoViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectivePhotoViewer.swift; sourceTree = "<group>"; };
+		591DA8331C59654D00546833 /* UIScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIScrollView.swift; sourceTree = "<group>"; };
 		596D477D1C40595F00A183CD /* PerspectiveNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerspectiveNavigationController.swift; sourceTree = "<group>"; };
 		5A58EF830F04149AB69CD818FA86AF7F /* SDImageCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageCache.h; path = SDWebImage/SDImageCache.h; sourceTree = "<group>"; };
 		5C1AB7C24C2B337D1A5F2CC7EC0433CC /* PerspectiveThumbnailViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PerspectiveThumbnailViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +301,22 @@
 			path = "Example/Pods/Target Support Files/PerspectivePhotoBrowser";
 			sourceTree = "<group>";
 		};
+		591DA82F1C595DB900546833 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				591DA8301C595DC800546833 /* PerspectivePhotoViewer.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		591DA8321C59654100546833 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				591DA8331C59654D00546833 /* UIScrollView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		6136A2302D287A11EC1DCEB8FA05ADC3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +428,8 @@
 		C7F3079D1A9007F2AD23E74615EED8E9 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				591DA8321C59654100546833 /* Extensions */,
+				591DA82F1C595DB900546833 /* Protocols */,
 				CE2F60449CE7663C4EFD06FCC07AF1FF /* PerspectivePhotoBrowserViewController.swift */,
 				191084885CDF2C4B75583FA0B5C46379 /* PerspectivePhotoHolderViewController.swift */,
 				5C1AB7C24C2B337D1A5F2CC7EC0433CC /* PerspectiveThumbnailViewController.swift */,
@@ -700,10 +722,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				591DA8311C595DC800546833 /* PerspectivePhotoViewer.swift in Sources */,
 				42F6468BE4EC80CCEF964B19D08271C4 /* PerspectivePhoto.swift in Sources */,
 				3D39448C71DBE23805A71C6CC8E2A850 /* PerspectivePhotoBrowser-dummy.m in Sources */,
 				4D31ECCE4642637BFBD1662D9B271B3A /* PerspectivePhotoBrowserViewController.swift in Sources */,
 				80C770305EE2365CCC90E7D5F72DBD42 /* PerspectivePhotoHolderCell.swift in Sources */,
+				591DA8341C59654D00546833 /* UIScrollView.swift in Sources */,
 				F61C4B688017D8DC3D38AD555DDD59C0 /* PerspectivePhotoHolderViewController.swift in Sources */,
 				71654682AFC7A0C40E311C850A2C86EF /* PerspectiveThumbnailCell.swift in Sources */,
 				596D477E1C40595F00A183CD /* PerspectiveNavigationController.swift in Sources */,

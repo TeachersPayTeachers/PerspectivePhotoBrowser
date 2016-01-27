@@ -1,10 +1,3 @@
-//
-//  AppDelegate.swift
-//  PerspectivePhotoBrowser
-//
-//  Created by amol-c on 01/05/2016.
-//  Copyright (c) 2016 amol-c. All rights reserved.
-//
 
 import UIKit
 
