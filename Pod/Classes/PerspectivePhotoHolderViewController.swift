@@ -11,6 +11,7 @@ public class PerspectivePhotoHolderViewController: UIViewController, Perspective
   @IBOutlet var collectionView: UICollectionView!
   var userDidScrollTo: (Int? -> Void)!
 
+  // MARK: Override
   override public func viewDidLoad() {
     super.viewDidLoad()
     self.collectionView.showsHorizontalScrollIndicator = false
@@ -27,13 +28,17 @@ public class PerspectivePhotoHolderViewController: UIViewController, Perspective
     }
   }
 
+  // MARK: Internal
   func userDidSelectThumbnailAt(index index: Int, animated: Bool = true) {
     let indexPath = NSIndexPath(forItem: index, inSection: 0)
 
     let cell = self.collectionView(self.collectionView, cellForItemAtIndexPath: indexPath)
     self.collectionView.scrollRectToVisible(cell.frame, animated: animated)
   }
+}
 
+// MARK: UIScrollViewDelegate
+extension PerspectivePhotoHolderViewController: UIScrollViewDelegate {
   public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
     var cell: UICollectionViewCell?
 
@@ -52,6 +57,7 @@ public class PerspectivePhotoHolderViewController: UIViewController, Perspective
   }
 }
 
+// MARK: UICollectionViewDataSource
 extension PerspectivePhotoHolderViewController: UICollectionViewDataSource {
   public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return photoArray.count
@@ -71,6 +77,7 @@ extension PerspectivePhotoHolderViewController: UICollectionViewDataSource {
   }
 }
 
+// MARK: UICollectionViewDelegateFlowLayout
 extension PerspectivePhotoHolderViewController: UICollectionViewDelegateFlowLayout {
   public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     return CGSizeMake(collectionView.widthFor(1), collectionView.minimumHeight())

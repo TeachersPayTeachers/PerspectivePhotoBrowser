@@ -1,10 +1,3 @@
-//
-//  PerspectiveThumbnailViewController.swift
-//  Pods
-//
-//  Created by Amol Chaudhari on 1/6/16.
-//
-//
 
 import UIKit
 
