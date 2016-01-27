@@ -11,12 +11,11 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
   public var photoHolderViewController: PerspectivePhotoHolderViewController!
   public var thumbnailViewController: PerspectiveThumbnailViewController!
 
-
   // MARK: Overrides
   public override func viewDidLoad() {
     super.viewDidLoad()
 
-    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "swippedVertically")
+    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "swipedVertically")
     swipeGestureRecognizer.numberOfTouchesRequired = 1
     swipeGestureRecognizer.direction = [.Down]
 
@@ -52,7 +51,7 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
   }
 
   // MARK: Actions
-  func swippedVertically() {
+  func swipedVertically() {
     self.dismissViewControllerAnimated(true, completion: .None)
   }
   
@@ -60,5 +59,4 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
   @IBAction func userDidPress(doneButton sender: UIButton) {
     self.dismissViewControllerAnimated(true, completion: .None)
   }
-
 }
