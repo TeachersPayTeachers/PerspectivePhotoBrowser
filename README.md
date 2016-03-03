@@ -5,6 +5,9 @@
 [![License](https://img.shields.io/cocoapods/l/PerspectivePhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/PerspectivePhotoBrowser)
 [![Platform](https://img.shields.io/cocoapods/p/PerspectivePhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/PerspectivePhotoBrowser)
 
+
+![alt tag](https://raw.githubusercontent.com/TeachersPayTeachers/ios/master/Perspective.gif)
+
 ## Usage
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -23,6 +26,7 @@ pod "PerspectivePhotoBrowser"
 ## Author
 
 amol-c, amol@teacherspayteachers.com
+jamesdo, james.s.do@gmail.com
 
 ## License
 
