@@ -6,7 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/PerspectivePhotoBrowser.svg?style=flat)](http://cocoapods.org/pods/PerspectivePhotoBrowser)
 
 
-![alt tag](https://raw.githubusercontent.com/TeachersPayTeachers/ios/master/Perspective.gif)
+![alt tag](https://raw.githubusercontent.com/TeachersPayTeachers/PerspectivePhotoBrowser/master/Perspective.gif)
 
 ## Usage
 
