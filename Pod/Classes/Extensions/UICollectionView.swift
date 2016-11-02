@@ -1,6 +1,6 @@
 
 extension UICollectionView {
-  func widthForCellWith(numberOfColumns: CGFloat) -> CGFloat {
+  func widthForCell(withNumberOfColumns numberOfColumns: Int) -> CGFloat {
     let viewWidth = self.bounds.width ?? 0
     let collectionViewFlowLayout = self.collectionViewLayout as! UICollectionViewFlowLayout
     let leftInset = collectionViewFlowLayout.sectionInset.left

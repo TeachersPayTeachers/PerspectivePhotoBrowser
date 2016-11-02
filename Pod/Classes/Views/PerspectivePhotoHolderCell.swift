@@ -18,24 +18,24 @@ class PerspectivePhotoHolderCell: UICollectionViewCell {
   }
 
   private func setupDoubleTapGesture() {
-    let doubleTap = UITapGestureRecognizer(target: self, action: "userDidDoubleTap:")
+    let doubleTap = UITapGestureRecognizer(target: self, action: #selector(userDidDoubleTap(_:)))
     doubleTap.numberOfTapsRequired = 2
     self.scrollView.addGestureRecognizer(doubleTap)
   }
 
   // MARK: Actions
-  func userDidDoubleTap(gesture: UITapGestureRecognizer) {
+  func userDidDoubleTap(_ gesture: UITapGestureRecognizer) {
     if self.scrollView.zoomScale == MinimumZoomScale {
-      self.scrollView.zoomToPoint(gesture.locationInView(self.scrollView), withScale: MaximumZoomScale, animated: true)
+      self.scrollView.zoom(to: gesture.location(in: self.scrollView), withScale: MaximumZoomScale, animated: true)
       return
     }
-    self.scrollView.zoomToPoint(gesture.locationInView(self.scrollView), withScale: MinimumZoomScale, animated: true)
+    self.scrollView.zoom(to: gesture.location(in: self.scrollView), withScale: MinimumZoomScale, animated: true)
   }
 }
 
 // MARK: UIScrollViewDelegate
 extension PerspectivePhotoHolderCell: UIScrollViewDelegate {
-  func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+  func view(forZoomingIn scrollView: UIScrollView) -> UIView? {
     return self.photoImageView
   }
 }

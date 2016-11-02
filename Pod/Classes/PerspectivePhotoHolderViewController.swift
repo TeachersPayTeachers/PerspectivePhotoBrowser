@@ -9,49 +9,49 @@ public class PerspectivePhotoHolderViewController: UIViewController, Perspective
   var startIndex: Int = 0
 
   @IBOutlet var collectionView: UICollectionView!
-  var userDidScrollTo: (Int? -> Void)!
+  var userDidScrollTo: ((Int?) -> Void)!
 
   // MARK: Override
   override public func viewDidLoad() {
     super.viewDidLoad()
     self.collectionView.showsHorizontalScrollIndicator = false
-    self.collectionView.backgroundColor = UIColor.whiteColor()
+    self.collectionView.backgroundColor = UIColor.white
     self.automaticallyAdjustsScrollViewInsets = false
   }
 
-  public override func viewWillAppear(animated: Bool) {
+  public override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
 
-    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+    DispatchQueue.main.async {
       self.collectionView.reloadData()
-      self.userDidSelectThumbnailAt(index: self.startIndex, animated: false)
+      self.userDidSelectThumbnail(atIndex: self.startIndex, animated: false)
     }
   }
 
   // MARK: Internal
-  func userDidSelectThumbnailAt(index index: Int, animated: Bool = true) {
-    let indexPath = NSIndexPath(forItem: index, inSection: 0)
+  func userDidSelectThumbnail(atIndex index: Int, animated: Bool = true) {
+    let indexPath = IndexPath(item: index, section: 0)
 
-    let cell = self.collectionView(self.collectionView, cellForItemAtIndexPath: indexPath)
+    let cell = self.collectionView(self.collectionView, cellForItemAt: indexPath)
     self.collectionView.scrollRectToVisible(cell.frame, animated: animated)
   }
 }
 
 // MARK: UIScrollViewDelegate
 extension PerspectivePhotoHolderViewController: UIScrollViewDelegate {
-  public func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+  public func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
     var cell: UICollectionViewCell?
 
-    var visibleCells = self.collectionView.visibleCells()
-    for var i = 0; i<visibleCells.count;i++ {
-      if (!CGRectContainsRect(self.collectionView.bounds, visibleCells[i].frame)) {
+    var visibleCells = self.collectionView.visibleCells
+    for i in 0 ..< visibleCells.count {
+      if (!self.collectionView.bounds.contains(visibleCells[i].frame)) {
         continue
       }
       cell = visibleCells[i]
     }
 
     if let cell = cell {
-      let indexpath = self.collectionView.indexPathForCell(cell)
+      let indexpath = self.collectionView.indexPath(for: cell)
       userDidScrollTo(indexpath?.row)
     }
   }
@@ -59,18 +59,18 @@ extension PerspectivePhotoHolderViewController: UIScrollViewDelegate {
 
 // MARK: UICollectionViewDataSource
 extension PerspectivePhotoHolderViewController: UICollectionViewDataSource {
-  public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return photoArray.count
   }
 
-  public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let photoHolderCell = collectionView.dequeueReusableCellWithReuseIdentifier("PerspectivePhotoHolderCell", forIndexPath: indexPath) as! PerspectivePhotoHolderCell
+  public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let photoHolderCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PerspectivePhotoHolderCell", for: indexPath) as! PerspectivePhotoHolderCell
     let perspectivePhoto = photoArray[indexPath.row]
 
     if let photo = perspectivePhoto.photo {
       photoHolderCell.photoImageView.image = photo
     } else if let photoURL = perspectivePhoto.URL {
-      photoHolderCell.photoImageView.sd_setImageWithURL(photoURL)
+      photoHolderCell.photoImageView.sd_setImage(with: photoURL)
     }
 
     return photoHolderCell
@@ -79,7 +79,7 @@ extension PerspectivePhotoHolderViewController: UICollectionViewDataSource {
 
 // MARK: UICollectionViewDelegateFlowLayout
 extension PerspectivePhotoHolderViewController: UICollectionViewDelegateFlowLayout {
-  public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    return CGSizeMake(collectionView.widthForCellWith(1), collectionView.minimumHeight())
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: collectionView.widthForCell(withNumberOfColumns: 1), height: collectionView.minimumHeight())
   }
 }

@@ -1,7 +1,7 @@
 
 import UIKit
 
-private let NumberOfColumns: CGFloat = 6
+private let NumberOfColumns = 6
 private let HighlightBarHeight: CGFloat = 10
 
 public class PerspectiveThumbnailViewController: UIViewController, PerspectivePhotoViewer {
@@ -14,60 +14,60 @@ public class PerspectiveThumbnailViewController: UIViewController, PerspectivePh
   var startIndex: Int = 0
 
   // MARK: InternalVar
-  var userDidSelectThumbnail: (Int -> Void)!
+  var userDidSelectThumbnail: ((Int) -> Void)!
 
   @IBOutlet var collectionView: UICollectionView!
 
   override public func viewDidLoad() {
     super.viewDidLoad()
     self.initializeCollectionView()
-    self.collectionView.backgroundColor = UIColor.whiteColor()
+    self.collectionView.backgroundColor = UIColor.white
   }
 
-  func selectThumbnailAt(index index: Int) {
-    let newIndexPath = NSIndexPath(forItem: index, inSection: 0)
-    self.userShouldScrollTo(newIndexPath)
-    self.collectionView.scrollToItemAtIndexPath(newIndexPath, atScrollPosition: .None, animated: true)
+  func selectThumbnail(atIndex index: Int) {
+    let newIndexPath = IndexPath(item: index, section: 0)
+    self.userShouldScroll(to: newIndexPath)
+    self.collectionView.scrollToItem(at: newIndexPath, at: UICollectionViewScrollPosition(), animated: true)
   }
 
-  private func userShouldScrollTo(indexPath: NSIndexPath, animated: Bool = true) {
+  fileprivate func userShouldScroll(to indexPath: IndexPath, animated: Bool = true) {
     CATransaction.setCompletionBlock { () -> Void in
-      let cell = self.collectionView(self.collectionView, cellForItemAtIndexPath: indexPath)
-      UIView.animateWithDuration(animated ? 0.4 : 0.0, animations: { () -> Void in
+      let cell = self.collectionView(self.collectionView, cellForItemAt: indexPath)
+      UIView.animate(withDuration: animated ? 0.4 : 0.0, animations: { () -> Void in
         self.highlightBar.center = CGPoint(x: cell.center.x, y: cell.center.y * 2)
-        }, completion: .None)
+        }, completion: .none)
       self.collectionView.scrollRectToVisible(cell.frame, animated: animated)
     }
   }
 
-  private func initializeCollectionView() {
+  fileprivate func initializeCollectionView() {
     self.collectionView.showsHorizontalScrollIndicator = false
     self.highlightBar = UIView()
 
-    self.highlightBar.backgroundColor = UIColor.redColor()
+    self.highlightBar.backgroundColor = UIColor.red
     self.collectionView.addSubview(self.highlightBar)
-    self.collectionView.bringSubviewToFront(self.highlightBar)
+    self.collectionView.bringSubview(toFront: self.highlightBar)
 
-    dispatch_async(dispatch_get_main_queue()) { () -> Void in
+    DispatchQueue.main.async {
       self.collectionView.reloadData()
-      self.userShouldScrollTo(NSIndexPath(forItem: self.startIndex, inSection: 0), animated: false)
+      self.userShouldScroll(to: IndexPath(item: self.startIndex, section: 0), animated: false)
     }
   }
 }
 
 extension PerspectiveThumbnailViewController: UICollectionViewDataSource {
-  public func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+  public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return photoArray.count
   }
 
-  public func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let thumbnailCell = collectionView.dequeueReusableCellWithReuseIdentifier("PerspectiveThumbnailCell", forIndexPath: indexPath) as! PerspectiveThumbnailCell
+  public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let thumbnailCell = collectionView.dequeueReusableCell(withReuseIdentifier: "PerspectiveThumbnailCell", for: indexPath) as! PerspectiveThumbnailCell
     let perspectivePhoto = photoArray[indexPath.row]
 
     if let photo = perspectivePhoto.photo {
       thumbnailCell.photoImageView.image = photo
     } else if let photoURL = perspectivePhoto.URL {
-      thumbnailCell.photoImageView.sd_setImageWithURL(photoURL)
+      thumbnailCell.photoImageView.sd_setImage(with: photoURL)
     }
 
     return thumbnailCell
@@ -75,19 +75,19 @@ extension PerspectiveThumbnailViewController: UICollectionViewDataSource {
 }
 
 extension PerspectiveThumbnailViewController: UICollectionViewDelegateFlowLayout {
-  public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    let cellWidth = collectionView.widthForCellWith(NumberOfColumns)
-    self.highlightBar.frame = CGRectMake(0, 0, cellWidth, HighlightBarHeight)
-    return CGSizeMake(cellWidth, collectionView.bounds.height)
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    let cellWidth = collectionView.widthForCell(withNumberOfColumns: NumberOfColumns)
+    self.highlightBar.frame = CGRect(x: 0, y: 0, width: cellWidth, height: HighlightBarHeight)
+    return CGSize(width: cellWidth, height: collectionView.bounds.height)
   }
-  public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+  public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     self.userDidSelectThumbnail(indexPath.row)
-    self.userShouldScrollTo(indexPath)
+    self.userShouldScroll(to: indexPath)
   }
 
-  public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+  public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
     let numberOfColumns = CGFloat(self.photoArray.count)
-    let cellWidth = collectionView.widthForCellWith(NumberOfColumns)
+    let cellWidth = collectionView.widthForCell(withNumberOfColumns: NumberOfColumns)
     var leftInset = (self.collectionView.bounds.size.width - cellWidth * numberOfColumns)/2
 
     leftInset = leftInset > 0 ? leftInset : 0

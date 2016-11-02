@@ -15,23 +15,23 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
   public override func viewDidLoad() {
     super.viewDidLoad()
 
-    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: "swipedVertically")
+    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedVertically))
     swipeGestureRecognizer.numberOfTouchesRequired = 1
-    swipeGestureRecognizer.direction = [.Down]
+    swipeGestureRecognizer.direction = [.down]
 
     self.view.addGestureRecognizer(swipeGestureRecognizer)
   }
 
-  public override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    super.prepareForSegue(segue, sender: sender)
+  public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    super.prepare(for: segue, sender: sender)
 
     if segue.identifier == "PerspectivePhotoHolderViewController" {
-      self.photoHolderViewController = segue.destinationViewController as! PerspectivePhotoHolderViewController
+      self.photoHolderViewController = segue.destination as! PerspectivePhotoHolderViewController
       self.photoHolderViewController.photoArray = self.photoArray
       self.photoHolderViewController.startIndex = startIndex
       self.photoHolderViewController.userDidScrollTo = { [unowned self] index in
         if let index = index {
-          self.thumbnailViewController.selectThumbnailAt(index: index)
+          self.thumbnailViewController.selectThumbnail(atIndex: index)
         }
       }
 
@@ -39,11 +39,11 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
     }
 
     if segue.identifier == "PerspectiveThumbnailViewController" {
-      self.thumbnailViewController = segue.destinationViewController as! PerspectiveThumbnailViewController
+      self.thumbnailViewController = segue.destination as! PerspectiveThumbnailViewController
       self.thumbnailViewController.photoArray = self.photoArray
       self.thumbnailViewController.startIndex = startIndex
       self.thumbnailViewController.userDidSelectThumbnail = { [unowned self] index in
-        self.photoHolderViewController.userDidSelectThumbnailAt(index: index)
+        self.photoHolderViewController.userDidSelectThumbnail(atIndex: index)
       }
 
       return
@@ -52,11 +52,11 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
 
   // MARK: Actions
   func swipedVertically() {
-    self.dismissViewControllerAnimated(true, completion: .None)
+    self.dismiss(animated: true, completion: .none)
   }
   
   // MARK: Actions
   @IBAction func userDidPress(doneButton sender: UIButton) {
-    self.dismissViewControllerAnimated(true, completion: .None)
+    self.dismiss(animated: true, completion: .none)
   }
 }

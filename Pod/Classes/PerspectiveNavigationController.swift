@@ -6,7 +6,7 @@ public class PerspectiveNavigationController: UINavigationController {
 
   // MARK: Public
   public class func perspectiveNavigationControllerWith(photoArray: [PerspectivePhoto], startIndex: Int = 0) -> PerspectiveNavigationController {
-    let perspectiveNavigationController = UIStoryboard(name: "PerspectivePhotoBrowserStoryboard", bundle: NSBundle(forClass: self)).instantiateInitialViewController() as! PerspectiveNavigationController
+    let perspectiveNavigationController = UIStoryboard(name: "PerspectivePhotoBrowserStoryboard", bundle: Bundle(for: self)).instantiateInitialViewController() as! PerspectiveNavigationController
 
     let perspectivePhotoBrowserViewController = perspectiveNavigationController.viewControllers[0] as! PerspectivePhotoBrowserViewController
     perspectivePhotoBrowserViewController.photoArray = photoArray
