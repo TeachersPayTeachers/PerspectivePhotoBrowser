@@ -35,7 +35,7 @@ class PerspectivePhotoHolderCell: UICollectionViewCell {
 
 // MARK: UIScrollViewDelegate
 extension PerspectivePhotoHolderCell: UIScrollViewDelegate {
-  func view(forZoomingIn scrollView: UIScrollView) -> UIView? {
+  func viewForZooming(in scrollView: UIScrollView) -> UIView? {
     return self.photoImageView
   }
 }

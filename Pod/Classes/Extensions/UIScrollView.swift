@@ -1,6 +1,6 @@
 
 extension UIScrollView {
-    func zoom(to point: CGPoint, withScale scale: CGFloat, animated: Bool) {
+  func zoom(to point: CGPoint, withScale scale: CGFloat, animated: Bool) {
     var x, y, width, height: CGFloat
 
     //Normalize current content size back to content scale of 1.0f
