@@ -1,9 +1,13 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CsO-A4-b6O">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CsO-A4-b6O">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Perspective Navigation Controller-->
@@ -31,32 +35,26 @@
                         <viewControllerLayoutGuide type="bottom" id="byk-5d-vP6"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="egg-1x-UXf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5e0-aN-zEc">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5e0-aN-zEc">
                                 <rect key="frame" x="0.0" y="64" width="600" height="402"/>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="64" width="400" height="600"/>
-                                </variation>
                                 <connections>
                                     <segue destination="rfV-fI-xpM" kind="embed" identifier="PerspectivePhotoHolderViewController" id="1PH-Wm-FjS"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jN6-v6-nL3">
+                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jN6-v6-nL3">
                                 <rect key="frame" x="0.0" y="500" width="600" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="dcB-yF-1oN"/>
                                 </constraints>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="692" width="400" height="88"/>
-                                </variation>
                                 <connections>
                                     <segue destination="ONx-Zl-C7l" kind="embed" identifier="PerspectiveThumbnailViewController" id="IRQ-CX-DQI"/>
                                 </connections>
                             </containerView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="jN6-v6-nL3" firstAttribute="top" secondItem="5e0-aN-zEc" secondAttribute="bottom" constant="34" id="3gx-JF-aca"/>
                             <constraint firstItem="5e0-aN-zEc" firstAttribute="leading" secondItem="egg-1x-UXf" secondAttribute="leadingMargin" constant="-20" id="Gxz-jw-nH3"/>
@@ -70,11 +68,11 @@
                     <navigationItem key="navigationItem" id="wLW-4A-2HO">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="1na-Lb-Xi7">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jht-pX-f3d">
-                                <rect key="frame" x="534" y="7" width="46" height="30"/>
+                                <rect key="frame" x="313" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
-                                    <action selector="userDidPressWithDoneButton:" destination="d0d-q7-R4t" eventType="touchUpInside" id="WA6-Hz-dLD"/>
+                                    <action selector="done" destination="d0d-q7-R4t" eventType="touchUpInside" id="7CJ-Uh-IdQ"/>
                                 </connections>
                             </button>
                         </barButtonItem>
@@ -96,7 +94,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="402"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-cL-gh4">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-cL-gh4">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="402"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Ksy-MX-cCE">
                                     <size key="itemSize" width="556" height="404"/>
@@ -129,7 +127,6 @@
                                                     </constraints>
                                                 </scrollView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="GF5-GK-QPr" firstAttribute="top" secondItem="6sD-Tz-mar" secondAttribute="topMargin" id="87s-1k-n7o"/>
@@ -149,7 +146,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pqg-cL-gh4" firstAttribute="centerY" secondItem="voV-Jc-3zW" secondAttribute="centerY" id="9cq-NG-mtv"/>
                             <constraint firstItem="Pqg-cL-gh4" firstAttribute="centerX" secondItem="voV-Jc-3zW" secondAttribute="centerX" id="OEq-0f-tb3"/>
@@ -182,7 +179,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e6m-Y4-S0Q">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e6m-Y4-S0Q">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="T62-SU-BgY">
                                     <size key="itemSize" width="113" height="128"/>
@@ -192,17 +189,16 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PerspectiveThumbnailCell" id="m2N-CM-hSH" customClass="PerspectiveThumbnailCell" customModule="PerspectivePhotoBrowser" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-21" width="113" height="128"/>
+                                        <rect key="frame" x="0.0" y="-20.5" width="113" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="113" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YD5-06-apb">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YD5-06-apb">
                                                     <rect key="frame" x="0.0" y="0.0" width="113" height="128"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
                                             <constraint firstItem="YD5-06-apb" firstAttribute="top" secondItem="m2N-CM-hSH" secondAttribute="topMargin" constant="-8" id="23R-Ac-k6P">
@@ -229,7 +225,7 @@
                                 </connections>
                             </collectionView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="e6m-Y4-S0Q" firstAttribute="leading" secondItem="Y8A-Wf-99i" secondAttribute="leadingMargin" constant="-20" id="AGl-fH-2um">
                                 <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>

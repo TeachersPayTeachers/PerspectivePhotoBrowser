@@ -8,6 +8,8 @@ class PerspectivePhotoHolderCell: UICollectionViewCell {
   @IBOutlet var photoImageView: UIImageView!
   @IBOutlet var scrollView: UIScrollView!
 
+  var didZoom: ((Void) -> Void)?
+
   override func awakeFromNib() {
     super.awakeFromNib()
     self.scrollView.delegate = self
@@ -37,5 +39,9 @@ class PerspectivePhotoHolderCell: UICollectionViewCell {
 extension PerspectivePhotoHolderCell: UIScrollViewDelegate {
   func viewForZooming(in scrollView: UIScrollView) -> UIView? {
     return self.photoImageView
+  }
+
+  func scrollViewDidZoom(_ scrollView: UIScrollView) {
+    didZoom?()
   }
 }
