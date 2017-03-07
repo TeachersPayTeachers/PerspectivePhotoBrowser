@@ -11,11 +11,16 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
   public var photoHolderViewController: PerspectivePhotoHolderViewController!
   public var thumbnailViewController: PerspectiveThumbnailViewController!
 
+  // Hooks for user interactions
+  public var didZoomPhoto: (() -> Void)?
+  public var didViewPhotoAtIndex: ((Int) -> Void)?
+  public var didDismiss: (() -> Void)?
+
   // MARK: Overrides
   public override func viewDidLoad() {
     super.viewDidLoad()
 
-    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(swipedVertically))
+    let swipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(done))
     swipeGestureRecognizer.numberOfTouchesRequired = 1
     swipeGestureRecognizer.direction = [.down]
 
@@ -30,9 +35,12 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
       self.photoHolderViewController.photoArray = self.photoArray
       self.photoHolderViewController.startIndex = startIndex
       self.photoHolderViewController.userDidScrollTo = { [unowned self] index in
-        if let index = index {
-          self.thumbnailViewController.selectThumbnail(atIndex: index)
-        }
+        self.thumbnailViewController.selectThumbnail(atIndex: index)
+        self.didViewPhotoAtIndex?(index)
+      }
+
+      self.photoHolderViewController.userDidZoom = { [unowned self] in
+        self.didZoomPhoto?()
       }
 
       return
@@ -44,6 +52,7 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
       self.thumbnailViewController.startIndex = startIndex
       self.thumbnailViewController.userDidSelectThumbnail = { [unowned self] index in
         self.photoHolderViewController.userDidSelectThumbnail(atIndex: index)
+        self.didViewPhotoAtIndex?(index)
       }
 
       return
@@ -51,12 +60,7 @@ public class PerspectivePhotoBrowserViewController: UIViewController, Perspectiv
   }
 
   // MARK: Actions
-  func swipedVertically() {
-    self.dismiss(animated: true, completion: .none)
-  }
-  
-  // MARK: Actions
-  @IBAction func userDidPress(doneButton sender: UIButton) {
-    self.dismiss(animated: true, completion: .none)
+  @IBAction func done() {
+    dismiss(animated: true, completion: didDismiss)
   }
 }

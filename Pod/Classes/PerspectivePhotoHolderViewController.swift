@@ -9,7 +9,8 @@ public class PerspectivePhotoHolderViewController: UIViewController, Perspective
   var startIndex: Int = 0
 
   @IBOutlet var collectionView: UICollectionView!
-  var userDidScrollTo: ((Int?) -> Void)!
+  var userDidScrollTo: ((Int) -> Void)?
+  var userDidZoom: ((Void) -> Void)?
 
   // MARK: Override
   override public func viewDidLoad() {
@@ -50,9 +51,8 @@ extension PerspectivePhotoHolderViewController: UIScrollViewDelegate {
       cell = visibleCells[i]
     }
 
-    if let cell = cell {
-      let indexpath = self.collectionView.indexPath(for: cell)
-      userDidScrollTo(indexpath?.row)
+    if let row = cell.flatMap({ collectionView.indexPath(for: $0)?.row }) {
+      userDidScrollTo?(row)
     }
   }
 }
@@ -71,6 +71,10 @@ extension PerspectivePhotoHolderViewController: UICollectionViewDataSource {
       photoHolderCell.photoImageView.image = photo
     } else if let photoURL = perspectivePhoto.URL {
       photoHolderCell.photoImageView.sd_setImage(with: photoURL)
+    }
+
+    photoHolderCell.didZoom = { [weak self] in
+      self?.userDidZoom?()
     }
 
     return photoHolderCell
