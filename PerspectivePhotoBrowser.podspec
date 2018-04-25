@@ -21,6 +21,7 @@ Pod::Spec.new do |s|
 
   s.platform     = :ios, '8.0'
   s.requires_arc = true
+  s.swift_version = '4.1'
 
   s.source_files = 'Pod/Classes/**/*.{swift}'
   s.resource_bundles = {
@@ -29,5 +30,5 @@ Pod::Spec.new do |s|
   s.resources = ["Pod/Resources/**/*.storyboard"]
 
   s.frameworks = 'UIKit'
-  s.dependency 'SDWebImage', '~>3.7'
+  s.dependency 'SDWebImage', '~> 4.0'
 end

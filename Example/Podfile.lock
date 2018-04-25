@@ -1,19 +1,25 @@
 PODS:
   - PerspectivePhotoBrowser (0.1.0):
-    - SDWebImage (~> 3.7)
-  - SDWebImage (3.7.3):
-    - SDWebImage/Core (= 3.7.3)
-  - SDWebImage/Core (3.7.3)
+    - SDWebImage (~> 4.0)
+  - SDWebImage (4.3.3):
+    - SDWebImage/Core (= 4.3.3)
+  - SDWebImage/Core (4.3.3)
 
 DEPENDENCIES:
   - PerspectivePhotoBrowser (from `../`)
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - SDWebImage
+
 EXTERNAL SOURCES:
   PerspectivePhotoBrowser:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  PerspectivePhotoBrowser: 5f807e07d4deea035646e5c69ba9ca85a26e1878
-  SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
+  PerspectivePhotoBrowser: fcb6de045241f1fc51912bc3dc9ad28274106cc8
+  SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 11c1c0a81360137067cf79b5e46951ab25b51172
+
+COCOAPODS: 1.5.0

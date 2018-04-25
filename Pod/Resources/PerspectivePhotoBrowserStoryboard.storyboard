@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CsO-A4-b6O">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CsO-A4-b6O">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <navigationController id="CsO-A4-b6O" customClass="PerspectiveNavigationController" customModule="PerspectivePhotoBrowser" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Jb5-47-2fK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -38,14 +38,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5e0-aN-zEc">
-                                <rect key="frame" x="0.0" y="64" width="600" height="402"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5e0-aN-zEc">
+                                <rect key="frame" x="-4" y="64" width="383" height="469"/>
                                 <connections>
                                     <segue destination="rfV-fI-xpM" kind="embed" identifier="PerspectivePhotoHolderViewController" id="1PH-Wm-FjS"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jN6-v6-nL3">
-                                <rect key="frame" x="0.0" y="500" width="600" height="87"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jN6-v6-nL3">
+                                <rect key="frame" x="-4" y="567" width="383" height="87"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="87" id="dcB-yF-1oN"/>
                                 </constraints>
@@ -66,7 +66,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="wLW-4A-2HO">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="1na-Lb-Xi7">
+                        <barButtonItem key="rightBarButtonItem" style="done" id="1na-Lb-Xi7">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="jht-pX-f3d">
                                 <rect key="frame" x="313" y="7" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -91,11 +91,11 @@
                         <viewControllerLayoutGuide type="bottom" id="u5N-Bw-zzb"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="voV-Jc-3zW">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="402"/>
+                        <rect key="frame" x="0.0" y="0.0" width="383" height="469"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-cL-gh4">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="402"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Pqg-cL-gh4">
+                                <rect key="frame" x="16" y="0.0" width="351" height="469"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Ksy-MX-cCE">
                                     <size key="itemSize" width="556" height="404"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -104,7 +104,7 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PerspectivePhotoHolderCell" id="6sD-Tz-mar" customClass="PerspectivePhotoHolderCell" customModule="PerspectivePhotoBrowser" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="-1" width="556" height="404"/>
+                                        <rect key="frame" x="0.0" y="32.5" width="556" height="404"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="556" height="404"/>
@@ -176,11 +176,11 @@
                         <viewControllerLayoutGuide type="bottom" id="LPE-Lh-neS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Y8A-Wf-99i">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
+                        <rect key="frame" x="0.0" y="0.0" width="383" height="87"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e6m-Y4-S0Q">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e6m-Y4-S0Q">
+                                <rect key="frame" x="16" y="0.0" width="351" height="87"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="T62-SU-BgY">
                                     <size key="itemSize" width="113" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -195,7 +195,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="113" height="128"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YD5-06-apb">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YD5-06-apb">
                                                     <rect key="frame" x="0.0" y="0.0" width="113" height="128"/>
                                                 </imageView>
                                             </subviews>

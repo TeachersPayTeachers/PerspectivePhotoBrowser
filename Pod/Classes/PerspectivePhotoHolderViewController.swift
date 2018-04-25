@@ -10,7 +10,7 @@ public class PerspectivePhotoHolderViewController: UIViewController, Perspective
 
   @IBOutlet var collectionView: UICollectionView!
   var userDidScrollTo: ((Int) -> Void)?
-  var userDidZoom: ((Void) -> Void)?
+  var userDidZoom: (() -> Void)?
 
   // MARK: Override
   override public func viewDidLoad() {

@@ -8,7 +8,7 @@ class PerspectivePhotoHolderCell: UICollectionViewCell {
   @IBOutlet var photoImageView: UIImageView!
   @IBOutlet var scrollView: UIScrollView!
 
-  var didZoom: ((Void) -> Void)?
+  var didZoom: (() -> Void)?
 
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -26,7 +26,7 @@ class PerspectivePhotoHolderCell: UICollectionViewCell {
   }
 
   // MARK: Actions
-  func userDidDoubleTap(_ gesture: UITapGestureRecognizer) {
+  @objc func userDidDoubleTap(_ gesture: UITapGestureRecognizer) {
     if self.scrollView.zoomScale == MinimumZoomScale {
       self.scrollView.zoom(to: gesture.location(in: self.scrollView), withScale: MaximumZoomScale, animated: true)
       return
