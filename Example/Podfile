@@ -1,12 +1,6 @@
 platform :ios, '8.0'
-
-source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'PerspectivePhotoBrowser_Example', :exclusive => true do
-  pod "PerspectivePhotoBrowser", :path => "../"
-end
-
-target 'PerspectivePhotoBrowser_Tests', :exclusive => true do
-  pod "PerspectivePhotoBrowser", :path => "../"
-end
+target 'PerspectivePhotoBrowser_Example'
+target 'PerspectivePhotoBrowser_Tests'
+pod 'PerspectivePhotoBrowser', path: '../'

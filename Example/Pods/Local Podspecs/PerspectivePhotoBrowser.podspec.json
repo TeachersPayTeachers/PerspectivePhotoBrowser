@@ -1,21 +1,24 @@
 {
   "name": "PerspectivePhotoBrowser",
   "version": "0.1.0",
-  "summary": "A short description of PerspectivePhotoBrowser.",
+  "summary": "Native PhotoBrowser for ios",
   "description": "A unique photobrowser based on UICollectionView",
-  "homepage": "https://github.com/<GITHUB_USERNAME>/PerspectivePhotoBrowser",
+  "homepage": "https://github.com/teacherspayteachers/PerspectivePhotoBrowser",
   "license": "MIT",
   "authors": {
-    "amol-c": "amol@teacherspayteachers.com"
+    "amol-c": "chaudhari.amol.sopan@gmail.com",
+    "jamesdo": "james.s.do@gmail.com"
   },
   "source": {
-    "git": "https://github.com/<GITHUB_USERNAME>/PerspectivePhotoBrowser.git",
+    "git": "https://github.com/teacherspayteachers/PerspectivePhotoBrowser.git",
     "tag": "0.1.0"
   },
+  "social_media_url": "https://twitter.com/TpTdotcom",
   "platforms": {
     "ios": "8.0"
   },
   "requires_arc": true,
+  "swift_version": "4.1",
   "source_files": "Pod/Classes/**/*.{swift}",
   "resource_bundles": {
     "PerspectivePhotoBrowser": [
@@ -28,7 +31,7 @@
   "frameworks": "UIKit",
   "dependencies": {
     "SDWebImage": [
-      "~>3.7"
+      "~> 4.0"
     ]
   }
 }
