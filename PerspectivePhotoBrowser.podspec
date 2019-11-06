@@ -30,5 +30,5 @@ Pod::Spec.new do |s|
   s.resources = ["Pod/Resources/**/*.storyboard"]
 
   s.frameworks = 'UIKit'
-  s.dependency 'SDWebImage', '~> 4.0'
+  s.dependency 'SDWebImage', '~> 5.0'
 end
