@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PerspectivePhotoBrowser"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "Native PhotoBrowser for ios"
 
   s.description      = "A unique photobrowser based on UICollectionView"
@@ -30,5 +30,5 @@ Pod::Spec.new do |s|
   s.resources = ["Pod/Resources/**/*.storyboard"]
 
   s.frameworks = 'UIKit'
-  s.dependency 'SDWebImage', '~> 5.0'
+  s.dependency 'SDWebImage', '~> 5.8'
 end
