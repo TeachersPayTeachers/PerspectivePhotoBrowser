@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PerspectivePhotoBrowser"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "Native PhotoBrowser for ios"
 
   s.description      = "A unique photobrowser based on UICollectionView"
@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => "https://github.com/teacherspayteachers/PerspectivePhotoBrowser.git", :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/TpTdotcom'
 
-  s.platform     = :ios, '8.0'
+  s.platform     = :ios, '11.0'
   s.requires_arc = true
   s.swift_version = '4.1'
 
@@ -30,5 +30,5 @@ Pod::Spec.new do |s|
   s.resources = ["Pod/Resources/**/*.storyboard"]
 
   s.frameworks = 'UIKit'
-  s.dependency 'SDWebImage', '~> 5.8'
+  s.dependency 'SDWebImage', '~> 5.11'
 end
